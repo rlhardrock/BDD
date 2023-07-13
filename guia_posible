@@ -1,0 +1,167 @@
+Configuracion Inicial de IDE
+
+Crear folder "com.project" en test/java y en main/java
+
+Crear carpetas test/java en "com.project"
+definitions
+runners
+
+Crear carpetas en main/java en "com.project"
+pages,
+steps,
+models,
+utils (codigo java puro aux)
+
+Crear en test/resources crear un directorio  "features"
+
+Revisar y configurar el 'build.gradle'
+
+Construir y configurar 'serenity.conf'  a nivel de la carpeta "features"
+
+*****
+
+serenity {
+  locale=en
+  browser.maximized= true
+  encoding = "UTF-8"
+  compress.filenames = true
+  take.screenshots = FOR_EACH_ACTION
+  reports = target/site/serenity
+  report.show-step-details = both
+  report.show-context-coverage = true
+  screenshot.format = png
+  screenshot.embedded = false
+  screenshot.path = target/screenshots
+  logging = INFO
+}
+
+webdriver{
+  driver= chrome
+  autodownload= true
+  #timeouts.implicitlywait = 300000
+  download{
+    default_directory = target/downloads
+    prompt_for_download = false
+    directory_upgrade = true
+    extensions_to_open = pdf
+  }
+
+  capabilities{
+    "goog:chromeOptions"{
+      args=["make-default-browser",
+            "start-maximized",
+            "headless",  //solo si desea ejecutar en segundo plano los test, sin abrir el nevegador
+            "lang=es",
+            "incognito",
+            "disable-extensions",
+            "remote-allow-origins=*",
+            "test-type",
+            "no-sandbox",
+            "disable-popup-blocking",
+            "disable-download-notification",
+            "ignore-certification-errors",
+            "allow-running-insecure-content",
+            "disable-translate",
+            "disable-info bars",
+            "always-authorize-plugins"]
+    }
+    prefs {
+      "profile.default_content_settings.cookies" = 1
+      "profile.default_content_settings.local_storage" = 1
+    }
+    drivers {
+      #windows {
+      #  webdriver.chrome.driver = src/test/resources/webdrivers/windows/chromedriver.exe
+      #  webdriver.gecko.driver = src/test/resources/webdrivers/windows/geckodriver.exe
+      #}
+      #mac {
+      #  webdriver.chrome.driver = src/test/resources/webdrivers/mac/chromedriver
+      #  webdriver.gecko.driver = src/test/resources/webdrivers/mac/geckodriver
+      #}
+      linux {
+        webdriver.chrome.driver = src/test/resources/webdrivers/linux/chromedriver
+        #webdriver.gecko.driver = src/test/resources/webdrivers/linux/geckodriver
+      }
+    }
+  }
+}
+*****
+
+Hacer Diseño de Automatización
+
+crear en test/resources/features -> file  function.feature    -->  Gherkin
+
+*****
+#language: es
+	Característica: Inicio de sesion en Serenity.demo
+		Como   usuario estudiante de SQA.SA
+		Quiero iniciar sesion en la web de serenity.demo
+		Para   ver mi usuario en el tablero de control funcionando
+
+	@loginExitoso
+	Escenario: Iniciar sesion de Usuario Exitoso
+		Dado      Yo abro la pagina web demo.serenity
+		Cuando    Yo modifique las credenciales acceso y haga click en "Sign in"
+		Entonces  Yo visualizo el tablero de control de Serenity.demo
+*****
+
+Construir el Runner, que la automatizacion convertir los pasos a metodos en snippet para usar en stepDefinitions
+
+Crear en test/java/.../runners & stepsDefinitions la clase login.runner
+y hacerla ejecutable adicionando (confirmar ruta del feature):
+
+*****
+crear y configurar Runner, ejecutar para obtener los steps
+*****
+
+hacer RUN ! ver BUILD SUCCESSFUL in Xs
+
+copia @Dado y demas en su respectivo definitions
+en la consola expone resultado,
+crear la clase functionDefinition test/java/definitions/
+copiar y pegar dentro de la public class functionDefinition y borrar los lanzadores
+
+adicionar
+import io.cucumber.java.es.*;
+
+*****
+
+Dirige a logica de Programación
+
+en main/java/pages
+
+crear class  loginPage
+donde se modelan los localizadores  ---> extends PageObject  (singular)
+import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.By;
+
+modelar localizadores
+
+    By txtUsuario = By.id("LoginPanel0_Username");
+con todos los localizadores
+
+usar Lombok o generar Get
+
+
+crear steps en su folder respectivo   loginSteps
+
+dentro de la clase
+
+@Page
+loginPage FunctionPage = new loginPage();
+
+    @Step("Comentario opcional -> Usuario abre el navegador")
+    public void abrirNavegador(){
+        FunctionPage.openUrl("https://demo.serenity.is/");
+    }
+
+
+
+instanciar en stepDefinitions
+
+@Steps  (plural)  antes de los metodos gherkin
+
+@Steps
+loginSteps LoginSteps;
+
+llamar al metodo  en el Dado/Cuando ...
