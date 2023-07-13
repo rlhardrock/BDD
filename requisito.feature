@@ -101,14 +101,14 @@ Feature: Product Login
 ************************************************************************************************
 
     Antecedentes:
-      Dado el usuario abre la web "http .....
+      Dado el usuario abre la web "http ....."
 
     @Another_Tag_Example_Sucess
     Escenario: Iniciar sesión con exito.
       Cuando el usuario ....
           | username | password |
           | payaso   | 123456  |
-      Entonces el usuario visualizaria el mensaje ".....
+      Entonces el usuario visualizaria el mensaje "....."
 
 
     @Another_Tag_Example_Failed
@@ -116,7 +116,7 @@ Feature: Product Login
       Cuando el usuario ingresa el <username> y el <password>
           | username | password |
           | payaso   | 123456  |
-      Entonces el usuario visualizaria el mensaje "....
+      Entonces el usuario visualizaria el mensaje "...."
 
 ************************************************************************************************
 
