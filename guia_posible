@@ -3,10 +3,11 @@ Configuracion Inicial de IDE
 Crear folder "com.project" en test/java y en main/java
 
 Crear carpetas test/java en "com.project"
-definitions
+stepDefinitions -> clases que mapean los steps de las features de Cucumber
 runners
+pageObjects -> clases que utilizan el api de Selenium
 
-Crear carpetas en main/java en "com.project"
+Crear carpetas en main/java en "com.project", segun estrategia POM o SP
 pages,
 steps,
 models,
@@ -16,25 +17,23 @@ Crear en test/resources crear un directorio  "features"
 
 Revisar y configurar el 'build.gradle'
 
+*****ver
+
 Construir y configurar 'serenity.conf'  a nivel de la carpeta "features"
+
+*****ver
 
 Hacer Diseño de Automatización
 
 crear en test/resources/features -> file  function.feature    -->  Gherkin
 
-*****
-#language: es
-	Característica: Inicio de sesion en Serenity.demo
-		Como   usuario estudiante de SQA.SA
-		Quiero iniciar sesion en la web de serenity.demo
-		Para   ver mi usuario en el tablero de control funcionando
+*****ver
 
-	@loginExitoso
-	Escenario: Iniciar sesion de Usuario Exitoso
-		Dado      Yo abro la pagina web demo.serenity
-		Cuando    Yo modifique las credenciales acceso y haga click en "Sign in"
-		Entonces  Yo visualizo el tablero de control de Serenity.demo
-*****
+por cada function crea un function.feature
+por cada feature crea un functionStepDefinitions
+ex:  Cart, Login, Search, Checkout, Landing, Takeoff, ...
+
+*****ver
 
 Construir el Runner, que la automatizacion convertir los pasos a metodos en snippet para usar en stepDefinitions
 
