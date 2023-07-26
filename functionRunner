@@ -11,3 +11,19 @@
 public class functionRunner {
 
 }
+
+*****
+Cucumber 7.9.0
+Java 17
+
+
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example.cucumber.automation")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "html:target/cucumber.html,json:target/cucumber.json,junit:target/cucumber.xml,"
++ "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:")
+
+public class RunCucumberTest {
+
+}
