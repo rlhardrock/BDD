@@ -4,7 +4,7 @@ Característica: Buscar un producto y enviarlo al carrito de compras
   Quiero buscar articulos para construccion via web en Alkomprar
   Para   adquirir productos a traves de un carrito de compras
 
-  @BusquedaYEnvio
+  @Tag_ID    @Tag_Requeriment   @Tag_Path
   Escenario: Busqueda de producto con envio al carrito
     Dado      abro la pagina web Alkomprar
     Cuando    busco el producto lo selecciono y envio al carrito de compras
@@ -24,17 +24,17 @@ Usar nombres de escenarios descriptivos
 Tener solo un paso Cuándo
 Usar el "debería" y sinonimos en los pasos Entonces
 
-feature  	       Característica Necesidad del negocio Requisito
+feature  	         Característica - Necesidad del negocio - Requisito
 background	       Antecedentes
-scenario	       Ejemplo Escenario
+scenario	         Ejemplo - Escenario
 scenarioOutline	   Esquema del escenario
-examples	       Ejemplos
-given	           Dado Dada Dados Dadas
-when	           Cuando
-then	           Entonces
-and	               * Y  E
+examples	         Ejemplos
+given	             Dado - Dada - Dados - Dadas
+when	             Cuando
+then	             Entonces
+and	               * - Y - E
 but	               Pero
-rule	           Regla  Regla de negocio
+rule	             Regla - Regla de negocio
 
 
 @Automation
