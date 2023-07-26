@@ -27,3 +27,13 @@ Java 17
 public class RunCucumberTest {
 
 }
+
+
+
+si en el escenario del feature tiene la etiqueta  @AcademicTest
+
+entonces en el runner
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "not @AcademicTest")
+
+public class RunCucumberTest {
+}
