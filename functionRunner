@@ -1,8 +1,14 @@
+
+//JUnit 4
 @RunWith(CucumberWithSerenity.class)
+
+//JUnit 5
+@ExtendWith(Cucumber.class)
+
 @CucumberOptions(
-        features = "path to feature completa para soportar los multiples escenarios opcionales",
+        features = "classpath:features",
         tags = "@tags",
-        glue = "path directory",
+        glue = "classpath:directory",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = "pretty",
         monochrome= true
@@ -11,6 +17,11 @@
 public class functionRunner {
 
 }
+
+
+
+
+
 
 *****
 Cucumber 7.9.0
@@ -31,9 +42,9 @@ public class RunCucumberTest {
 
 
 si en el escenario del feature tiene la etiqueta  @AcademicTest
-
 entonces en el runner
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "not @AcademicTest")
 
 public class RunCucumberTest {
+
 }
