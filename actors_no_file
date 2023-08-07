@@ -18,3 +18,18 @@ public class ...enStepDefinitions {
                 Open.url("https://todomvc.com/examples/angularjs/#/")
         );
     }
+
+
+*************************
+
+@ParameterType(".*")
+    public Actor Wolverine(String James_Howlett) {
+        return OnStage.theActorCalled(James_Howlett);
+    }
+
+@Given("starts with an empty list")
+    public void stats_with_an_empty_list(Actor Wolverine) {
+        Wolverine.attemptsTo(
+            Open.url("https://todomvc.com/examples/angularjs/#/")
+    );
+}
