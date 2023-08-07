@@ -12,7 +12,6 @@ buildscript {
 plugins {
 	id "net.serenity-bdd.serenity-gradle-plugin" version "${serenityCoreVersion}"
 	id 'java'
-	id 'eclipse'
 	id 'idea'
 }
 
@@ -21,8 +20,8 @@ defaultTasks 'clean','test','aggregate'
 group 'proyecto'
 version '1.0-SNAPSHOT' //opcional
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
 	mavenCentral()
@@ -94,7 +93,7 @@ test {
 
 serenity {
 	testRoot = "proyecto.runners"
-	requirementsBaseDir = "path to features"
+	requirementsBaseDir = "classpath:features"
 	reports = ["single-page-html"]
 }
 
