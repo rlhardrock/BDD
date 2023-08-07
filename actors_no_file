@@ -1,0 +1,20 @@
+// Definir las partes interesadas como actor independiente o como elenco
+
+public class ...enStepDefinitions {
+
+    @Managed
+    WebDriver driver;
+
+    Actor Wolverine = Actor.named("James Howlett");
+
+    @Before
+    public void setupActor() {
+        Wolverine.can(BrowseTheWeb.with(driver));
+    }
+
+    @Given("Toby starts with an empty list")
+    public void stats_with_an_empty_list() {
+        Wolverine.attemptsTo(
+                Open.url("https://todomvc.com/examples/angularjs/#/")
+        );
+    }
