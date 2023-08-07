@@ -5,7 +5,7 @@ public class ...enStepDefinitions {
     @Managed
     WebDriver driver;
 
-    Actor Wolverine = Actor.named("James Howlett");
+    Actor Wolverine = Actor.named("James Howlett, Administrator");
 
     @Before
     public void setupActor() {
