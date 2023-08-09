@@ -3,23 +3,21 @@ Configuracion Inicial de IDE
 Crear folder "com.project" en test/java y en main/java
 
 Crear carpetas test/java en "com.project"
-stepDefinitions -> clases que mapean los steps de las features de Cucumber
-runners
-pageObjects -> clases que utilizan el api de Selenium
+stepDefinitions
+runners 
 
-Crear carpetas en main/java en "com.project", segun estrategia POM o SP
-pages,
-steps,
-models,
-utils (codigo java puro aux)
+Crear carpetas en main/java en "com.project", segun estrategia:
+POM =>  pages, steps, models, utils
+SP =>  tasks, interactions, questions, interfaces, exceptions, models, utils (algunas veces reports)
 
-Crear en test/resources crear un directorio  "features"
+Crear en test/resources crear un directorio  
+features
 
 Revisar y configurar el 'build.gradle'
 
 *****ver
 
-Construir y configurar 'serenity.conf'  a nivel de la carpeta "features"
+Construir y configurar 'serenity.conf'  a nivel del directorio "features"
 
 *****ver
 
@@ -31,13 +29,13 @@ crear en test/resources/features -> file  function.feature    -->  Gherkin
 
 por cada function crea un function.feature
 por cada feature crea un functionStepDefinitions
-ex:  Cart, Login, Search, Checkout, Landing, Takeoff, ...
+ex:  Cart, Login, Search, Checkout, Landing, Takeoff, Form...
 
 *****ver
 
 Construir el Runner, que la automatizacion convertir los pasos a metodos en snippet para usar en stepDefinitions
 
-Crear en test/java/.../runners & stepsDefinitions la clase login.runner
+Crear en test/java/.../runners & stepsDefinitions la clase "function.runner"
 y hacerla ejecutable adicionando (confirmar ruta del feature):
 
 *****
@@ -46,10 +44,10 @@ crear y configurar Runner, ejecutar para obtener los steps
 
 hacer RUN ! ver BUILD SUCCESSFUL in Xs
 
-copia @Dado y demas en su respectivo definitions
+copia @Dado y demas en su respectivo StepDefinitions
 en la consola expone resultado,
 crear la clase functionDefinition test/java/definitions/
-copiar y pegar dentro de la public class functionDefinition y borrar los lanzadores
+copiar y pegar dentro de la public class "functionStepDefinition" y borrar los lanzadores
 
 adicionar
 import io.cucumber.java.es.*;
@@ -67,11 +65,10 @@ import org.openqa.selenium.By;
 
 modelar localizadores
 
-    By txtUsuario = By.id("LoginPanel0_Username");
+By txtUsuario = By.id("LoginPanel0_Username");
 con todos los localizadores
 
 usar Lombok o generar Get
-
 
 crear steps en su folder respectivo   loginSteps
 
