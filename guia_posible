@@ -92,3 +92,58 @@ instanciar en stepDefinitions
 loginSteps LoginSteps;
 
 llamar al metodo  en el Dado/Cuando ...
+
+
+
+********************************************************
+
+JAVA 17 LTS
+GRADLE 8.*
+INTELLIJ IDEA + plugins
+
+Crear proyecto en el IDE
+
+Versionar en con GitHub
+
+Añadir target/ a .gitignore
+
+Construir el build.gradle
+
+Crear en main/java y test/java la carpeta "com.projecto"
+
+Crear en test/resources la carpeta "features", "data", etc
+
+Crear a nivel de features, "serenity.conf"
+
+Crear en ...test/java/projecto/ las carpetas runners y stepDefinitions
+
+Crear en test/resources/features  el  requerimiento.features
+
+Crear en la carpeta runner, la clase RequerimientoRunner, configurar y ejecutarla. copiar resultados de snippets.
+
+Crear en la carpeta stepDefinitions, la clase RequerimientoStepDefinition, pegar resultados de snippets, del runner.
+
+Crear en main/java/projecto la estructura de carpetas:
+
+-->SP [abilities, questions, interactions, tasks, ui, utils, exceptions, reports, facts, matchers, models, endpoints, constants]
+Orden del flujo = ui -> tasks -> interactions -> questions  | utils
+
+-->POM [models, steps, pages, utils]
+Orden del flujo = pages -> steps | utils
+
+
+*******************************
+SP
+
+@Before
+escenifica el elenco
+
+@Given
+abrir navegador
+
+@When
+secuencia de tareas y metodos
+
+@Then
+zona de aserciones
+*******************************
