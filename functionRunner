@@ -1,9 +1,24 @@
+*net.serenity-bdd:serenity-screenplay
+*net.serenity-bdd:serenity-screenplay-webdriver
 
-//JUnit 4
+// SP & JUnit 4
++net.serenity-bdd:serenity-junit
+import net.serenitybdd.junit.runners.SerenityRunner;
+import org.junit.Test;
+@RunWith(SerenityRunner.class)
+
+// SP & JUnit 5
++net.serenity-bdd:serenity-junit5
+import net.serenitybdd.junit.runners.SerenityJUnit5Extension;
+import org.junit.jupiter.api.Test;
+@ExtendWith(SerenityJUnit5Extension.class)
+
+// SP & C (J4)
++net.serenity-bdd:serenity-cucumber
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
-
-//JUnit 5
-@ExtendWith(Cucumber.class)
 
 @CucumberOptions(
         features = "classpath:features",
