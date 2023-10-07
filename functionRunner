@@ -1,20 +1,25 @@
-*net.serenity-bdd:serenity-screenplay
-*net.serenity-bdd:serenity-screenplay-webdriver
 
-// SP & JUnit 4
+// SP & JUnit 4 + SerBDD
 +net.serenity-bdd:serenity-junit
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.Test;
 @RunWith(SerenityRunner.class)
 
-// SP & JUnit 5
+// SP & JUnit 5 + SerBDD
 +net.serenity-bdd:serenity-junit5
 import net.serenitybdd.junit.runners.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 @ExtendWith(SerenityJUnit5Extension.class)
 
-// SP & C (J4)
-+net.serenity-bdd:serenity-cucumber
+// SP & C (J4) + SerBDD
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+@RunWith(CucumberWithSerenity.class)
+
+// SP & C (J5) + SerBDD
+import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
@@ -33,12 +38,34 @@ public class functionRunner {
 
 }
 
+**************************************************************************
 
+dependencies {
+    // Dependencia para Serenity BDD con Cucumber
+    implementation 'net.serenity-bdd:serenity-cucumber6:2.0.74'
+    
+    // Dependencia para Cucumber
+    implementation 'io.cucumber:cucumber-java:6.10.4'
+    
+    // Dependencia para Cucumber JUnit
+    implementation 'io.cucumber:cucumber-junit:6.10.4'
+    
+    // Dependencia para Screenplay Serenity BDD
+    implementation 'net.serenity-bdd:serenity-screenplay:2.0.74'
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:2.0.7'
+    
+    // Dependencia para JUnit 4
+    testImplementation 'junit:junit:4.13.2'
 
+    // Dependencia para JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    
+    // Otras dependencias que puedas necesitar
+}
 
+**************************************************************************
 
-
-*****
 Cucumber 7.9.0
 Java 17
 
