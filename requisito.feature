@@ -102,20 +102,22 @@ Feature: Product Login
 
     Antecedentes:
       Dado el usuario abre la web "http ....."
+      Y  ...
 
-    @Another_Tag_Example_Sucess
+    @Another_Tag_Example_Success
     Escenario: Iniciar sesión con exito.
-      Cuando el usuario ....
-          | username | password |
-          | payaso   | 123456  |
-      Entonces el usuario visualizaria el mensaje "....."
+      Cuando el usuario ingresa <username> y la contraseña <password>
+      Entonces el usuario visualizaria el mensaje <message>
+          | username | password | message |
+          | payaso   | 123456  | mensaje |
+      
 
 
     @Another_Tag_Example_Failed
     Escenario: Iniciar sesión sin exito.
-      Cuando el usuario ingresa el <username> y el <password>
+      Cuando el usuario ingresa el <username> y la contraseña <password>
           | username | password |
-          | payaso   | 123456  |
+          | payaso   | 123456777  |
       Entonces el usuario visualizaria el mensaje "...."
 
 ************************************************************************************************
