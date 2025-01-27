@@ -93,9 +93,12 @@ Feature: Product Login
          Then the user should be successfully logged on
 
          Examples:
-         | username | password |
-         | frank    | 1234     |
-         | jack     | 4321     |
+         | username    | password   |
+         | rassiya     | 1234       |
+         | deutschland | 4321       |
+         | sbrja       | 6721       |
+         | españa      | 690321     |
+         | mejico      | 487321     |        
 
 
 ************************************************************************************************
