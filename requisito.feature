@@ -4,7 +4,7 @@ Característica: Buscar un producto y enviarlo al carrito de compras
   Quiero buscar articulos para construccion via web en Alkomprar
   Para   adquirir productos a traves de un carrito de compras
 
-  @Tag_ID    @Tag_Requeriment   @Tag_Path
+  @Type_Test   @Tag_ID   @Tag_Requeriment   @Tag_Path  ... + @Tags
   Escenario: Busqueda de producto con envio al carrito
     Dado      abro la pagina web Alkomprar
     Cuando    busco el producto lo selecciono y envio al carrito de compras
